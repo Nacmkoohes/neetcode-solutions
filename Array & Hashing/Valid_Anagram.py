@@ -11,8 +11,11 @@
 from collections import Counter
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        counter_s=Counter(s)
-        counter_t=Counter(t)
-        if counter_s==counter_t:
+        s_counter=Counter(s)
+        t_cunter=Counter(t)
+        if s_counter == t_cunter:
             return True
         return False
+
+test=Solution()
+print(test.isAnagram(s = "rat", t = "car"))

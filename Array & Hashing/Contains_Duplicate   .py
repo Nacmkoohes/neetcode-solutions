@@ -10,8 +10,12 @@
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:
         seen=set()
-        for n in nums:
-            if n in seen:
+        for num in nums:
+            if num in seen:
                 return True
-            seen.add(n)
+            seen.add(num)
         return False
+                       
+s = Solution()
+print(s.containsDuplicate([1, 2, 3, 4]))       # Should print False
+print(s.containsDuplicate([1, 2, 3, 1]))       # Should print True
