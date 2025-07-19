@@ -1,9 +1,20 @@
-from collections import Counter
+from typing import List
+
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        frequency=Counter(nums)
-        sorted_items=sorted(frequency.items(), key= lambda x:x[1],reverse=True)
-        result=[]
-        for item in sorted_items[:k]:
-            result.append(item[0])
-        return result
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        for s in strs:
+            res += str(len(s)) + "#" + s
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        res = []
+        i = 0
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i:j])
+            res.append(s[j+1:j+1+length])
+            i = j + 1 + length
+        return res
